@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "config/config.h"
+#include "config/Export.hpp"
 
 //! Namespace to isolate definitions.
 namespace dftu
@@ -50,6 +50,26 @@ extern const DFTU_API Dimension DIM_VELOCITY;
 //! Pre-defined derived dimensions for density.
 extern const DFTU_API Dimension DIM_DENSITY;
 
+//! Enumeration of base units.
+//! These index an array of structures.
+enum BaseUnitType
+{
+	//! Metre (L).
+	BASEUNIT_METRE,
+	//! Second (T).
+	BASEUNIT_SECOND,
+	//! Kilogram (M).
+	BASEUNIT_KILOGRAM,
+	//! Coulomb (Q).
+	BASEUNIT_COULOMB,
+	//! Kelvin (theta).
+	BASEUNIT_KELVIN,
+	//! Amount of matter (N).
+	BASEUNIT_MOLE,
+	//! Limit.
+	BASEUNIT_MAX
+};
+/*
 //! A base unit, defined for one of the base quantities.
 struct BaseUnit
 {
@@ -66,6 +86,7 @@ extern const DFTU_API BaseUnit UNIT_FOOT;
 extern const DFTU_API BaseUnit UNIT_SECOND;
 extern const DFTU_API BaseUnit UNIT_KILOGRAM;
 extern const DFTU_API BaseUnit UNIT_RADIAN;
+*/
 
 //! The base 10 power of a unit.
 //! This defines some useful presets without restricting the value.
@@ -81,14 +102,14 @@ enum Scale
 };
 
 //! A combination of base units.
-struct DFTU_API DerivedUnit
+struct DFTU_API Unit
 {
 	//! The name of the unit e.g. millemetre.
 	const char * name;
 	//! The ASCII symbol of the unit e.g. 'mm'.
 	const char * symbol;
-	//! The base unit we are modifying.
-	const BaseUnitPower * combination;
+	//! The multiplicative combination of base units.
+	int powers[BASEUNIT_MAX];
 	//! The base 10 power of the unit.
 	//! This turns e.g. m into mm.
 	unsigned char scale;
@@ -98,8 +119,17 @@ struct DFTU_API Quantity
 {
 	//! The name of the quantity.
 	const char * name;
-	const DerivedUnit * unit;
+	//! The symbol as a byte array terminated by a null.
+	const char * symbol;
+	//! The unit of this quantity.
+	const Unit * unit;
 };
+
+extern const DFTU_API Quantity QUANTITY_LENGTH;
+extern const DFTU_API Quantity QUANTITY_WIDTH;
+extern const DFTU_API Quantity QUANTITY_HEIGHT;
+extern const DFTU_API Quantity QUANTITY_MASS;
+extern const DFTU_API Quantity QUANTITY_TIME;
 
 }
 
