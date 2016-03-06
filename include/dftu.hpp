@@ -92,13 +92,16 @@ extern const DFTU_API BaseUnit UNIT_RADIAN;
 //! This defines some useful presets without restricting the value.
 enum Scale
 {
+	SCALE_PICO=-12,
+	SCALE_NANO=-9,
 	SCALE_MICRO=-6,
-	SCALE_MILLE=-3,
+	SCALE_MILLI=-3,
 	SCALE_CENTI=-2
 	SCALE_DECI=-1,
 	SCALE_KILO=3,
 	SCALE_MEGA=6,
-	SCALE_TERA=9
+	SCALE_GIGA=9,
+	SCALE_TERA=12
 };
 
 //! A combination of base units.
