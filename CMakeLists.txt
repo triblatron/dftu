@@ -1,0 +1,4 @@
+PROJECT( DFTU )
+
+ADD_LIBRARY( dftu SHARED src/dftu.cpp )
+TARGET_INCLUDE_DIRECTORIES( dftu PUBLIC include )

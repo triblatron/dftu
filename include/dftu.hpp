@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "config/Export.hpp"
+#include "Export.hpp"
 
 //! Namespace to isolate definitions.
 namespace dftu
@@ -63,7 +63,7 @@ extern const DFTU_API Dimension DIM_DENSITY;
 enum BaseUnitType
 {
 	//! Dimensionless.
-	BASEUNIT_ONE.
+	BASEUNIT_ONE,
 	//! Metre (L).
 	BASEUNIT_METRE,
 	//! Second (T).
@@ -106,7 +106,7 @@ enum Scale
 	SCALE_NANO=-9,
 	SCALE_MICRO=-6,
 	SCALE_MILLI=-3,
-	SCALE_CENTI=-2
+	SCALE_CENTI=-2,
 	SCALE_DECI=-1,
 	SCALE_KILO=3,
 	SCALE_MEGA=6,
