@@ -41,6 +41,8 @@ struct DFTU_API Dimension
 	int power[BASEDIM_MAX];
 };
 
+extern bool DFTU_API dimensionless(const Dimension & dim);
+
 //! Determine whether a given dimension is a base dimension.
 //! @retval true if dim is a base dimension.
 //! @retval false otherwise.
@@ -123,7 +125,7 @@ struct DFTU_API Unit
 	const char * symbol;
 	//! The product of powers of base units.
 	//! This corresponds to powers of base dimensions.
-	int powers[BASEUNIT_MAX];
+	int power[BASEUNIT_MAX];
 	//! A conversion factor to SI units.
 	//! 1.0 if this is an SI unit.
 	double factorSI;
