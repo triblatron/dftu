@@ -1,0 +1,15 @@
+"20 m/s"
+"20 ms^-1"
+"20 m/1 s"
+"10 m/s/s"
+"10 m/s^2"
+"10 ms^-2"
+"2 Nm"
+
+quantity ::= double ' ' units
+units ::= unit (op unit)* | unit unitpower unitpower* | unit unit*
+unit ::= 'm' | 's' | 'kg' | 'N'
+op ::= '/'
+unitpower ::= unit '^' integer
+double ::= '-'? digit digit* ('.' digit digit*)?
+integer ::= '-'? digit digit*
