@@ -148,9 +148,6 @@ add_library(antlr4_shared SHARED IMPORTED)
 add_dependencies(antlr4_shared antlr4_runtime-build_shared)
 set_target_properties(antlr4_shared PROPERTIES
                       IMPORTED_LOCATION ${ANTLR4_RUNTIME_LIBRARIES})
-get_target_property( ANTLR4_SHARED_LOCATION antlr4_shared IMPORTED_LOCATION )
-get_filename_component( ANTLR4_VERSIONED ${ANTLR4_SHARED_LOCATION} REALPATH )
-INSTALL( FILES ${ANTLR4_SHARED_LOCATION} ${ANTLR4_VERSIONED} DESTINATION lib )
 if(ANTLR4_SHARED_LIBRARIES)
   set_target_properties(antlr4_shared PROPERTIES
                         IMPORTED_IMPLIB ${ANTLR4_SHARED_LIBRARIES})
