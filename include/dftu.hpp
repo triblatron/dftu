@@ -11,34 +11,34 @@ namespace dftu
 //! Base/fundamental dimensions
 enum BaseDimension
 {
-	//! Pseudo-dimension to use as a denominator in a derived dimension.
-	BASEDIM_ONE,
-	//! Spatial dimension (L).
-	BASEDIM_LENGTH,
-	//! Time dimension (T).
-	BASEDIM_TIME,
-	//! Mass dimension (M).
-	BASEDIM_MASS,
-	//! Electric charge (Q).
-	BASEDIM_CHARGE,
-	//! Absolute Temperature (Theta).
-	BASEDIM_TEMPERATURE,
-	//! Amount of a substance (N).
-	BASEDIM_AMOUNT,
-	//! Dummy last dimension, use as a limit.
-	BASEDIM_MAX
+    //! Pseudo-dimension to use as a denominator in a derived dimension.
+    BASEDIM_ONE,
+    //! Spatial dimension (L).
+    BASEDIM_LENGTH,
+    //! Time dimension (T).
+    BASEDIM_TIME,
+    //! Mass dimension (M).
+    BASEDIM_MASS,
+    //! Electric charge (Q).
+    BASEDIM_CHARGE,
+    //! Absolute Temperature (Theta).
+    BASEDIM_TEMPERATURE,
+    //! Amount of a substance (N).
+    BASEDIM_AMOUNT,
+    //! Dummy last dimension, use as a limit.
+    BASEDIM_MAX
 };
 
 //! Derived dimensions.
 //! A arary of powers of base dimensions.
-//! A base dimension is one where only one element 
+//! A base dimension is one where only one element
 //! is non-zero and is equal to one.
 struct DFTU_API Dimension
 {
-	//! The symbol for this dimension.
-	const char * symbol;
-	//! The product of powers of each base dimension.
-	int power[BASEDIM_MAX];
+    //! The symbol for this dimension.
+    const char * symbol;
+    //! The product of powers of each base dimension.
+    int power[BASEDIM_MAX];
 };
 
 extern bool DFTU_API dimensionless(const Dimension & dim);
@@ -64,33 +64,33 @@ extern const DFTU_API Dimension DIM_DENSITY;
 //! These index an array of structures.
 enum BaseUnitType
 {
-	//! Dimensionless.
-	BASEUNIT_ONE,
-	//! Metre (L).
-	BASEUNIT_METRE,
-	//! Second (T).
-	BASEUNIT_SECOND,
-	//! Kilogram (M).
-	BASEUNIT_KILOGRAM,
-	//! Coulomb (Q).
-	BASEUNIT_COULOMB,
-	//! Kelvin (theta).
-	BASEUNIT_KELVIN,
-	//! Amount of matter (N).
-	BASEUNIT_MOLE,
-	//! Limit.
-	BASEUNIT_MAX
+    //! Dimensionless.
+    BASEUNIT_ONE,
+    //! Metre (L).
+    BASEUNIT_METRE,
+    //! Second (T).
+    BASEUNIT_SECOND,
+    //! Kilogram (M).
+    BASEUNIT_KILOGRAM,
+    //! Coulomb (Q).
+    BASEUNIT_COULOMB,
+    //! Kelvin (theta).
+    BASEUNIT_KELVIN,
+    //! Amount of matter (N).
+    BASEUNIT_MOLE,
+    //! Limit.
+    BASEUNIT_MAX
 };
 /*
 //! A base unit, defined for one of the base quantities.
 struct BaseUnit
 {
-	//! Name of the unit e.g. 'metre'
-	const char * name;
-	//! Symbol for the unit e.g. 'm'
-	const char * symbol;
-	//! The dimension of the unit.
-	BaseDimension dimension;
+    //! Name of the unit e.g. 'metre'
+    const char * name;
+    //! Symbol for the unit e.g. 'm'
+    const char * symbol;
+    //! The dimension of the unit.
+    BaseDimension dimension;
 };
 
 extern const DFTU_API BaseUnit UNIT_METRE;
@@ -104,34 +104,35 @@ extern const DFTU_API BaseUnit UNIT_RADIAN;
 //! This defines some useful presets without restricting the value.
 enum Scale
 {
-	SCALE_PICO=-12,
-	SCALE_NANO=-9,
-	SCALE_MICRO=-6,
-	SCALE_MILLI=-3,
-	SCALE_CENTI=-2,
-	SCALE_DECI=-1,
-	SCALE_KILO=3,
-	SCALE_MEGA=6,
-	SCALE_GIGA=9,
-	SCALE_TERA=12
+    SCALE_PICO=-12,
+    SCALE_NANO=-9,
+    SCALE_MICRO=-6,
+    SCALE_MILLI=-3,
+    SCALE_CENTI=-2,
+    SCALE_DECI=-1,
+    SCALE_ONE=1,
+    SCALE_KILO=3,
+    SCALE_MEGA=6,
+    SCALE_GIGA=9,
+    SCALE_TERA=12
 };
 
 //! A combination of base units.
 struct DFTU_API Unit
 {
-	//! The name of the unit e.g. millemetre.
-	const char * name;
-	//! The ASCII symbol of the unit e.g. 'mm'.
-	const char * symbol;
-	//! The product of powers of base units.
-	//! This corresponds to powers of base dimensions.
-	int power[BASEUNIT_MAX];
-	//! A conversion factor to SI units.
-	//! 1.0 if this is an SI unit.
-	double factorSI;
-	//! The base 10 power of the unit.
-	//! This turns e.g. m into mm.
-	unsigned char scale;
+    //! The name of the unit e.g. millemetre.
+    const char * name;
+    //! The ASCII symbol of the unit e.g. 'mm'.
+    const char * symbol;
+    //! The product of powers of base units.
+    //! This corresponds to powers of base dimensions.
+    int power[BASEUNIT_MAX];
+    //! A conversion factor to SI units.
+    //! 1.0 if this is an SI unit.
+    double factorSI;
+    //! The base 10 power of the unit.
+    //! This turns e.g. m into mm.
+    Scale scale;
 };
 
 extern const DFTU_API Unit UNIT_METRE;
@@ -144,12 +145,12 @@ extern const DFTU_API Unit UNIT_MOLE;
 //! A physical quantity.
 struct DFTU_API Quantity
 {
-	//! The name of the quantity.
-	const char * name;
-	//! The symbol as a byte array terminated by a null.
-	const char * symbol;
-	//! The SI unit of this quantity.
-	const Unit * unitSI;
+    //! The name of the quantity.
+    const char * name;
+    //! The symbol as a byte array terminated by a null.
+    const char * symbol;
+    //! The SI unit of this quantity.
+    const Unit * unitSI;
 };
 
 //! Length (L, m)
@@ -187,20 +188,20 @@ extern bool DFTU_API dimensionless( const Quantity & q );
 //! A reading of a physical quantity.
 struct DFTU_API Reading
 {
-	double value;
-	const Unit * unit;
+    double value;
+    const Unit * unit;
 };
 
 //! The result of a conversion.
 enum DFTU_API ConversionResult
 {
-	//! The conversion was successful.
-	CONVERT_SUCCESS,
-	//! The target unit is equal to the original unit.
-	CONVERT_NOCHANGE,
-	//! The two units were incommensurable so no conversion is possible.
-	//! This means that the products of powers of dimensions were not the same.
-	CONVERT_INCOMMENSURABLE
+    //! The conversion was successful.
+    CONVERT_SUCCESS,
+    //! The target unit is equal to the original unit.
+    CONVERT_NOCHANGE,
+    //! The two units were incommensurable so no conversion is possible.
+    //! This means that the products of powers of dimensions were not the same.
+    CONVERT_INCOMMENSURABLE
 };
 
 //! Determine whether two units are commensurate.
@@ -227,21 +228,24 @@ extern ConversionResult DFTU_API convert( const Reading & inputReading, const Un
 //! The result of a call to parse().
 enum DFTU_API ParseResult
 {
-	//! Parse successful.
-	PARSE_SUCCESS,
-	//! The value could not be determined.
-	PARSE_BAD_VALUE,
-	//! The unit could not be determined or was not in the input system.
-	PARSE_BAD_UNIT
+    //! Parse successful.
+    PARSE_SUCCESS,
+    //! The value could not be determined.
+    PARSE_BAD_VALUE,
+    //! The unit could not be determined or was not in the input system.
+    PARSE_BAD_UNIT
 };
 
 //! A system of units available for parsing.
 struct UnitSystem
 {
-	const Unit * units;
+    int numUnits;
+    const Unit units[];
 };
 
-//! Parse a C string into a Reading object.
+extern const DFTU_API UnitSystem SI;
+
+//! Parse a C staring into a Reading object.
 //! @retval PARSE_SUCCESS if successful.
 //! @retval PARSE_BAD_VALUE if the value could not be determined.
 //! @retval PARSE_BAD_UNIT if the unit could not be determined or is not in system.
