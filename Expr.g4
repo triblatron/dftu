@@ -4,8 +4,8 @@ expr  : ID '=' Floatingliteral unit? ;
 ID : [a-z]+ ;             // match lower-case identifiers
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 Floatingliteral
-    : Fractionalconstant Exponentpart? Floatingsuffix?
-    | Digitsequence Exponentpart Floatingsuffix?
+    : Fractionalconstant Exponentpart?
+    | Digitsequence Exponentpart
     ;
 unit
     : length
