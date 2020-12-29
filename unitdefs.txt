@@ -5,9 +5,9 @@ metre = {
 }
 
 millimetre = {
-    dim = LENGTH
-    symbol = mm
-    scale = 1/1000
+    dim : LENGTH
+    symbol : mm
+    scale : 1/1000
 }
 
 second = {
@@ -35,14 +35,14 @@ hour = {
 }
 
 mileperhour = {
-    dim = LENGTH TIME^-1
-    symbol = mi/h
-    siFactor = 1.0/2.2369362921
+    dim : LENGTH TIME^-1
+    symbol : mi/h
+    siFactor : 1.0/2.2369362921
 }
 
 length={
     dim : LENGTH
-    siUnit = m
+    siUnit : m
 }
 
 velocity={
