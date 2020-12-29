@@ -1,0 +1,28 @@
+metre = {
+    dim : LENGTH
+    symbol : "m"
+    siFactor : 1
+}
+
+second = {
+    dim : TIME
+    symbol : "s"
+    siFactor : 1
+}
+
+metrepersecond = {
+    dim : LENGTH TIME^-1
+    symbol : [ "m/s", "ms^-1" ]
+    siFactor : 1
+}
+
+metrepersecondpersecond = {
+    dim = LENGTH TIME^-2
+    symbol : [ "m/s/s", "ms^-1" ]
+    siFactor : 1
+}
+
+length={
+    dim : LENGTH
+    siUnit = m
+}
