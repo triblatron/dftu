@@ -60,8 +60,14 @@ extern const DFTU_API Dimension DIM_VELOCITY;
 //! Pre-defined derived dimension for density.
 extern const DFTU_API Dimension DIM_DENSITY;
 
-//! Enumeration of base units.
-//! These index an array of structures.
+extern const DFTU_API Dimension DIM_ACCELERATION;
+
+extern const DFTU_API Dimension DIM_JERK;
+
+extern const DFTU_API Dimension DIM_FREQUENCY;
+
+extern const DFTU_API Dimension DIM_SPATIAL_FREQUENCY;
+
 enum BaseUnitType
 {
     //! Dimensionless.
@@ -81,24 +87,6 @@ enum BaseUnitType
     //! Limit.
     BASEUNIT_MAX
 };
-/*
-//! A base unit, defined for one of the base quantities.
-struct BaseUnit
-{
-    //! Name of the unit e.g. 'metre'
-    const char * name;
-    //! Symbol for the unit e.g. 'm'
-    const char * symbol;
-    //! The dimension of the unit.
-    BaseDimension dimension;
-};
-
-extern const DFTU_API BaseUnit UNIT_METRE;
-extern const DFTU_API BaseUnit UNIT_FOOT;
-extern const DFTU_API BaseUnit UNIT_SECOND;
-extern const DFTU_API BaseUnit UNIT_KILOGRAM;
-extern const DFTU_API BaseUnit UNIT_RADIAN;
-*/
 
 //! The base 10 power of a unit.
 //! This defines some useful presets without restricting the value.
@@ -133,6 +121,7 @@ struct DFTU_API Unit
     //! The base 10 power of the unit.
     //! This turns e.g. m into mm.
     Scale scale;
+    const Dimension * dim;
 };
 
 extern const DFTU_API Unit UNIT_METRE;
