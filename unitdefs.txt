@@ -1,28 +1,61 @@
 metre = {
     dim : LENGTH
-    symbol : "m"
-    siFactor : 1
+    symbol : m
+    scale : 1
+}
+
+millimetre = {
+    dim = LENGTH
+    symbol = mm
+    scale = 1/1000
 }
 
 second = {
     dim : TIME
-    symbol : "s"
-    siFactor : 1
+    symbol : s
+    scale : 1
 }
 
 metrepersecond = {
     dim : LENGTH TIME^-1
-    symbol : [ "m/s", "ms^-1" ]
-    siFactor : 1
+    symbol : [ m/s, ms^-1 ]
+    scale : 1
 }
 
 metrepersecondpersecond = {
     dim = LENGTH TIME^-2
-    symbol : [ "m/s/s", "ms^-1" ]
-    siFactor : 1
+    symbol : [ m/s/s, ms^-1 ]
+    scale : 1
+}
+
+hour = {
+    dim : TIME
+    symbol : h
+    scale : 1.0/3600.0
+}
+
+mileperhour = {
+    dim = LENGTH TIME^-1
+    symbol = mi/h
+    siFactor = 1.0/2.2369362921
 }
 
 length={
     dim : LENGTH
     siUnit = m
+}
+
+velocity={
+    dim : LENGTH TIME^-1
+    siUnit : ms^-1
+}
+
+acceleration={
+    dim : LENGTH TIME^-2
+    siUnit : ms^-2
+}
+
+jerk={
+    dim : LENGTH TIME^-3
+    siUnit : ms^-3
 }
