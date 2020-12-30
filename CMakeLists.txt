@@ -36,8 +36,12 @@ target_link_libraries(demo dftu)
 
 target_link_libraries(dftu antlr4_shared)
 
+CONFIGURE_FILE( etc/setup.sh.in ${PROJECT_BINARY_DIR}/etc/setup.sh )
+
 INSTALL( TARGETS dftu DESTINATION lib )
 INSTALL( TARGETS demo DESTINATION bin )
 get_target_property( ANTLR4_SHARED_LOCATION antlr4_shared IMPORTED_LOCATION )
 get_filename_component( ANTLR4_VERSIONED ${ANTLR4_SHARED_LOCATION} REALPATH )
 INSTALL( FILES ${ANTLR4_SHARED_LOCATION} ${ANTLR4_VERSIONED} DESTINATION lib )
+
+INSTALL( FILES ${PROJECT_BINARY_DIR}/etc/setup.sh DESTINATION . )
