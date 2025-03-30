@@ -19,3 +19,5 @@ This library will provide run-time ( as opposed to compile-time like in boost un
 It aims to be reasonably efficient and self-contained.
 
 CMake will be used as the build system.
+
+This repo is archived.
